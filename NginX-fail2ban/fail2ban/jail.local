@@ -1,0 +1,8 @@
+[nginx-rate-limit]
+enabled = true
+filter = nginx-rate-limit
+logpath = /var/log/nginx/access.log
+bantime = 3600
+findtime = 60
+maxretry = 10
+action = iptables[name=HTTP, port=http, protocol=tcp]

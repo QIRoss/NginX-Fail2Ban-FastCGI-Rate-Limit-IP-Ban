@@ -1,0 +1,18 @@
+services:
+  nginx:
+    build:
+      context: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./fail2ban:/etc/fail2ban
+      - nginx-log:/var/log/nginx
+  fail2ban:
+    image: crazymax/fail2ban:latest
+    volumes:
+      - ./fail2ban:/data
+      - nginx-log:/var/log/nginx
+    restart: always
+
+volumes:
+  nginx-log:

@@ -1,0 +1,12 @@
+[Unit]
+Description=Simple CGI Server for Nginx
+After=network.target
+
+[Service]
+ExecStart=/usr/sbin/fcgiwrap -f -c 5
+User=www-data
+Group=www-data
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
